@@ -1,4 +1,4 @@
-<?php /* links.php */ ?>
+<?php ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -23,11 +23,11 @@
 <section class="links">
   <div class="grid">
     <div class="qr">
-      <img src="assets/qr/eval.png" alt="QR - Evaluation Form" onerror="this.src='https://via.placeholder.com/280x280?text=QR+Code+1'">
+      <img src="assets/qr/eval.png" alt="QR - Evaluation Form">
       <div class="cap">املأ الفورم لتقييمنا</div>
     </div>
     <div class="qr">
-      <img src="assets/qr/instagram.png" alt="QR - Instagram" onerror="this.src='https://via.placeholder.com/280x280?text=QR+Code+2'">
+      <img src="assets/qr/instagram.png" alt="QR - Instagram">
       <div class="cap">تابعنا على الانستغرام</div>
     </div>
   </div>

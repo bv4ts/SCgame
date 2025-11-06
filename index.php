@@ -1,4 +1,4 @@
-<?php /* index.php */ ?>
+<?php ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>

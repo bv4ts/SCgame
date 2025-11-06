@@ -1,4 +1,4 @@
-<?php /* admin.php */ ?>
+<?php ?>
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -47,19 +47,18 @@
 let cats = [];
 let currentCatId = null;
 
-// توليد لون عشوائي
 function getRandomColor() {
   const colors = [
-    '#E53935', '#D32F2F', '#C62828', // أحمر
-    '#8E24AA', '#7B1FA2', '#6A1B9A', // بنفسجي
-    '#5E35B1', '#512DA8', '#4527A0', // بنفسجي غامق
-    '#3949AB', '#303F9F', '#283593', // أزرق غامق
-    '#1E88E5', '#1976D2', '#1565C0', // أزرق
-    '#039BE5', '#0288D1', '#0277BD', // أزرق فاتح
-    '#43A047', '#388E3C', '#2E7D32', // أخضر
-    '#FB8C00', '#F57C00', '#EF6C00', // برتقالي
-    '#F4511E', '#E64A19', '#D84315', // برتقالي محمر
-    '#6D4C41', '#5D4037', '#4E342E'  // بني
+    '#E53935', '#D32F2F', '#C62828', 
+    '#8E24AA', '#7B1FA2', '#6A1B9A', 
+    '#5E35B1', '#512DA8', '#4527A0', 
+    '#3949AB', '#303F9F', '#283593', 
+    '#1E88E5', '#1976D2', '#1565C0', 
+    '#039BE5', '#0288D1', '#0277BD', 
+    '#43A047', '#388E3C', '#2E7D32',
+    '#FB8C00', '#F57C00', '#EF6C00', 
+    '#F4511E', '#E64A19', '#D84315', 
+    '#6D4C41', '#5D4037', '#4E342E' 
   ];
   return colors[Math.floor(Math.random() * colors.length)];
 }
@@ -72,7 +71,6 @@ async function refreshCats() {
     catList.innerHTML = '';
     
     cats.forEach(c => {
-      // قائمة الأقسام
       const li = document.createElement('div');
       li.className = 'item';
       li.innerHTML = `<span style="display:flex;align-items:center;gap:8px;">
@@ -102,7 +100,7 @@ async function refreshCats() {
 
 async function addCategory() {
   const name = document.getElementById('newCatName').value.trim();
-  const color = getRandomColor(); // لون عشوائي تلقائياً
+  const color = getRandomColor(); 
   if (!name) {
     alert('الرجاء إدخال اسم القسم');
     return;
@@ -301,7 +299,6 @@ async function updateQuestion(id, body) {
   }
 }
 
-// تحميل الأقسام عند فتح الصفحة
 refreshCats();
 </script>
 </body>

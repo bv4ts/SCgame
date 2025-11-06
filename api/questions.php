@@ -1,11 +1,9 @@
 <?php
-// CORS headers - يجب أن تكون أول شيء
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Content-Type: application/json; charset=utf-8');
 
-// Handle preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   http_response_code(200);
   exit;
@@ -16,7 +14,6 @@ require_once __DIR__.'/db.php';
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
-  // ?category_id=#
   $cid = (int)($_GET['category_id'] ?? 0);
   $res = $mysqli->query("SELECT id, body FROM questions WHERE is_active=1 AND category_id=$cid ORDER BY id DESC");
   echo json_encode($res->fetch_all(MYSQLI_ASSOC)); exit;
@@ -25,7 +22,6 @@ if ($method === 'GET') {
 if ($method === 'POST') {
   $action = $_POST['_action'] ?? 'add';
   
-  // إضافة سؤال
   if ($action === 'add') {
     $cid = (int)($_POST['category_id'] ?? 0);
     $body = trim($_POST['body'] ?? '');
@@ -36,7 +32,6 @@ if ($method === 'POST') {
     echo json_encode(['id'=>$stmt->insert_id]); exit;
   }
   
-  // تعديل سؤال
   if ($action === 'update') {
     $id = (int)($_POST['id'] ?? 0);
     $body = trim($_POST['body'] ?? '');
@@ -59,7 +54,6 @@ if ($method === 'POST') {
     echo json_encode(['ok'=>1]); exit;
   }
   
-  // حذف سؤال (soft delete)
   if ($action === 'delete') {
     $id = (int)($_POST['id'] ?? 0);
     if (!$id) { 
@@ -120,7 +114,6 @@ if ($method === 'DELETE') {
     exit; 
   }
   
-  // تجربة الصلاحية - نتحقق من الـ UPDATE permission
   $stmt = $mysqli->prepare("UPDATE questions SET is_active=0 WHERE id=?");
   if (!$stmt) {
     echo json_encode(['error'=>'Prepare failed', 'mysql_error'=>$mysqli->error]); 
