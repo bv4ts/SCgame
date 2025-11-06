@@ -1,86 +1,83 @@
-# IAU Syrian Community - لعبة عجلة الحظ
+# IAU Syrian Community — Wheel of Fortune Game
 
-موقع بسيط لعجلة حظ تفاعلية مع إدارة الأقسام والأسئلة.
+A simple interactive Wheel of Fortune web app with an admin panel for managing categories and questions.
 
-## متطلبات التشغيل
+## Requirements
 
 - XAMPP (Apache + MySQL + PHP)
-- متصفح ويب حديث
+- A modern web browser
 
-## خطوات التثبيت
+## Installation
 
-### 1. إعداد قاعدة البيانات
+### 1. Set up the database
 
-1. افتح XAMPP Control Panel
-2. شغّل Apache و MySQL
-3. افتح phpMyAdmin من المتصفح: `http://localhost/phpmyadmin`
-4. انقر على "SQL" في القائمة العلوية
-5. انسخ محتوى ملف `database.sql` والصقه في نافذة SQL
-6. اضغط "Go" لتنفيذ الأوامر
+1. Open the XAMPP Control Panel.
+2. Start Apache and MySQL.
+3. Open phpMyAdmin in your browser: `http://localhost/phpmyadmin`.
+4. Use the SQL tab or the Import feature to run the SQL statements in `database.sql`.
 
-### 2. تشغيل الموقع
+### 2. Run the site
 
-1. تأكد من أن Apache يعمل في XAMPP
-2. افتح المتصفح واذهب إلى: `http://localhost/iausyriancommunitygame`
+1. Make sure Apache is running in XAMPP.
+2. Open your browser and go to: `http://localhost/iausyriancommunitygame` (adjust the path if you placed the project in a different folder).
 
-## الصفحات
+## Pages
 
-### GAME (`index.php`)
-- صفحة اللعبة الرئيسية
-- تعرض عجلة الحظ مع الأقسام
-- اضغط على الدائرة لتدوير العجلة
-- بعد التوقف، يظهر سؤال عشوائي من القسم المختار
+### Game (`index.php`)
+- The main game page.
+- Displays the wheel with categories.
+- Click/tap the wheel to spin.
+- When the wheel stops, a random question from the selected category is shown.
 
-### CREATE GAME (`admin.php`)
-- لوحة التحكم لإدارة الأقسام والأسئلة
-- إضافة/تعديل/حذف الأقسام مع اختيار اللون
-- إضافة/حذف الأسئلة لكل قسم
+### Admin (`admin.php`)
+- Administration panel to manage categories and questions.
+- Add / edit / delete categories and choose category colors.
+- Add and remove questions for each category.
 
-### LINKS (`links.php`)
-- صفحة عرض أكواد QR
-- لوضع رابط فورم التقييم وحساب الإنستغرام
+### Links (`links.php`)
+- A simple page to display QR codes (for the evaluation form and the Instagram account).
 
-## إضافة أكواد QR
+## Adding QR codes
 
-1. ضع صور أكواد QR في المجلد: `assets/qr/`
-2. سمّ الملفات:
-   - `eval.png` - لفورم التقييم
-   - `instagram.png` - لحساب الإنستغرام
+1. Place QR code images in `assets/qr/`.
+2. Use these filenames for the app to recognize them:
+   - `eval.png` — evaluation form
+   - `instagram.png` — Instagram account
 
-## البنية
+## Project structure
 
 ```
 iausyriancommunitygame/
-├── index.php              # صفحة اللعبة
-├── admin.php              # لوحة الإدارة
-├── links.php              # صفحة الروابط
-├── database.sql           # ملف قاعدة البيانات
-├── README.md              # هذا الملف
+├── index.php              # Game page
+├── admin.php              # Admin panel
+├── links.php              # Links / QR codes
+├── database.sql           # Database schema & sample data
+├── README.md              # Original README (Arabic)
+├── README_EN.md           # This English README
 ├── api/
-│   ├── db.php            # اتصال قاعدة البيانات
-│   ├── categories.php    # API للأقسام
-│   ├── questions.php     # API للأسئلة
-│   └── spin.php          # اختيار سؤال عشوائي
+│   ├── db.php             # Database connection
+│   ├── categories.php     # Categories API
+│   ├── questions.php      # Questions API
+│   └── spin.php           # Select random question
 ├── assets/
 │   ├── css/
-│   │   └── style.css     # التنسيقات
+│   │   └── style.css      # Styles
 │   ├── js/
-│   │   ├── wheel.js      # منطق العجلة
-│   │   └── ui.js         # واجهة المستخدم
-│   └── qr/               # صور أكواد QR
-└── uploads/              # (اختياري)
+│   │   ├── wheel.js       # Wheel logic
+│   │   └── ui.js          # UI interactions
+│   └── qr/                # QR code images
+└── uploads/               # (optional)
 ```
 
-## ملاحظات
+## Notes
 
-- تأكد من تشغيل Apache و MySQL قبل استخدام الموقع
-- يمكنك تعديل إعدادات قاعدة البيانات في `api/db.php`
-- الموقع يدعم اللغة العربية بالكامل (RTL)
-- تم تضمين بيانات تجريبية في `database.sql`
+- Make sure Apache and MySQL are running before using the site.
+- Database connection settings can be edited in `api/db.php`.
+- The app supports Arabic (RTL) and includes sample data in `database.sql`.
 
-## الدعم
+## Support
 
-للمشاكل أو الاستفسارات، يرجى التواصل مع المطور.
+If you have any problems or questions, please contact the project maintainer.
 
 ---
 **IAU Syrian Community © 2025**
