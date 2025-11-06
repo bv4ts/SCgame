@@ -1,0 +1,6 @@
+
+api/db.php
+.env
+node_modules/
+vendor/
+*.log
